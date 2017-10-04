@@ -1,0 +1,28 @@
+{
+	"size" : "3",
+
+	"name" : "projet_c++_trop_swag",
+
+	"type" : "c",
+
+	"file" : {
+		"0" : {
+			"type" : "casual",
+			"name" : "data_extraction"
+		},
+
+		"1" : {
+                        "type" : "casual",
+                        "name" : "data_sending"
+                },
+
+		"2" : {
+                        "type" : "main",
+                        "name" : "autonomize"
+                }
+
+
+	}
+
+}
+
