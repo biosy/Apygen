@@ -26,15 +26,28 @@ os.system("mkdir " + projectName)
 while i<nbrFile:
 	ptC = projectName + "/" + configData["file"][str(i)]["name"]+".c"
 	ptH = projectName + "/" + configData["file"][str(i)]["name"]+".h"
+	includer = "\42" + configData["file"][str(i)]["name"]+".h\42"
+
 	os.system("touch " + ptC)
+
 	if configData["file"][str(i)]["type"] == "casual" :
 		os.system("touch " + ptH)
+		os.system("echo '\43include <stdio.h>' >> " + ptH )
+		os.system("echo '\43include <stdlib.h>' >> " + ptH )
+		os.system("echo '\43include "+includer+"' >> " + ptC)
+
 		print("[Create] file : " + ptH)
 
-	print("[Create] file : " + ptC)
+	if configData["file"][str(i)]["type"] == "main" :
+		os.system("touch " + ptC)
+		os.system("echo '\43include <stdio.h>' >> " + ptC)
+		os.system("echo '\43include <stdlib.h>' >> " + ptC)
+		os.system("echo '\nint main(){ \n\n	return 0;\n}' >>" + ptC)
 
 	i = i+1
 
+
+	os.system("cp Makefile "+ projectName)
 ##### case C #####
 
 # generate Makefile
