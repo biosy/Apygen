@@ -1,0 +1,28 @@
+{
+	"size" : "3",
+
+	"name" : "/home/alexis/Documents/projet_c++++_trop_soin",
+
+	"type" : "c",
+
+	"file" : {
+		"0" : {
+			"type" : "casual",
+			"name" : "data_extraction"
+		},
+
+		"1" : {
+                        "type" : "class",
+                        "name" : "data_sending"
+                },
+
+		"2" : {
+                        "type" : "main",
+                        "name" : "autonomize"
+                }
+
+
+	}
+
+}
+
