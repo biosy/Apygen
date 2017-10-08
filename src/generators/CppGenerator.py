@@ -8,7 +8,7 @@ import json
 import sys
 
 ##read config file
-configFile = open('./Cppconfig.json')
+configFile = open('./config.json')
 configData = json.load(configFile)
 
 #get all important datas
@@ -55,3 +55,4 @@ while i<nbrFile:
 #generate a generic makefile
 os.system("cp ./templates/MakefileCpp "+ projectName)
 os.system("mv " + projectName + "/MakefileCpp " + projectName + "/Makefile")
+

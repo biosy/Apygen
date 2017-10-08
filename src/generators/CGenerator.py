@@ -8,7 +8,7 @@ import json
 import sys
 
 ##read config file
-configFile = open('./Cconfig.json')
+configFile = open('./config.json')
 configData = json.load(configFile)
 
 #get all important datas
