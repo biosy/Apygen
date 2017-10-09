@@ -1,6 +1,5 @@
 #!/usr/bin/python3.5
-
-# -*-coding:ENCODAGE -*
+# -*-coding:Latin-1 -*
 
 import os
 import time
@@ -17,6 +16,7 @@ while flag :
 	choice  = input("> ")
 	file = ""
 	prname = ""
+	place = 0
 
 	if(choice == "create project") :
 		print("select a name")
@@ -61,7 +61,7 @@ while flag :
 			file = input("	>")
 			jsonfile = open("config/"+prname+".json", "r+")
 			jsondata = json.load(jsonfile)
-			jsondata["file"][file]={}
+			jsondata["file"][str(place)]={}
 			type = jsondata["type"]
 			jsonfile.close()
 			output = open("config/"+prname+".json", "r+")
@@ -69,7 +69,7 @@ while flag :
 			output.close()
 			jsonfile = open("config/"+prname+".json", "r+")
 			jsondata = json.load(jsonfile)
-			jsondata["file"][file]["name"] = file
+			jsondata["file"][str(place)]["name"] = file
 
 			if(type == "C"):
 				type_file = input( "choose a type of file : c for casual or m for main ")
@@ -77,10 +77,10 @@ while flag :
 					type_file = input("not a good choice ")
 
 				if(type_file =="c"):
-					jsondata["file"][file]["type"] = "casual"
+					jsondata["file"][str(place)]["type"] = "casual"
 
 				if(type_file =="m"):
-					jsondata["file"][file]["type"] = "main"
+					jsondata["file"][str(place)]["type"] = "main"
 
 
 			if(type == "C++" or type == "Python"):
@@ -89,13 +89,13 @@ while flag :
 					type_file = input("not a good choice ")
 
 				if(type_file =="c"):
-					jsondata["file"][file]["type"] = "casual"
+					jsondata["file"][str(place)]["type"] = "casual"
 
 				if(type_file =="m"):
-					jsondata["file"][file]["type"] = "main"
+					jsondata["file"][str(place)]["type"] = "main"
 
 				if(type_file =="cp"):
-					jsondata["file"][file]["type"] = "class"
+					jsondata["file"][str(place)]["type"] = "class"
 
 
 			size = int(jsondata["size"])
@@ -103,6 +103,7 @@ while flag :
 			output = open("config/"+prname+".json", "w+")
 			output.write(json.dumps(jsondata, indent = 4))
 			output.close()
+			place = place +1
 
 	elif(choice == "generate"):
 		print("select project name")

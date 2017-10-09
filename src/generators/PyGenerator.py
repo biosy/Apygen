@@ -33,16 +33,16 @@ while i<nbrFile:
 
 	#case usual fil
 	if configData["file"][str(i)]["type"] == "casual" :
-		os.system("cp ./templates/pyclasse.py " + ptPy)
+		os.system("cp ../templates/pyclasse.py " + ptPy)
 
 	#case main just need a main()
 	if configData["file"][str(i)]["type"] == "main" :
-		os.system("cp ./templates/pyclasse.py " + ptPy)
+		os.system("cp ../templates/pyclasse.py " + ptPy)
 
 
 	#case class
 	if configData["file"][str(i)]["type"] == "class" :
-		os.system("cp ./templates/pyclasse.py " + ptPy)
+		os.system("cp ../templates/pyclasse.py " + ptPy)
 		pystr = "'\nclass " + configData["file"][str(i)]["name"] +" {\n\n	public :\n\n	private :\n\n};'";
 		os.system("echo " + pystr + " >> " + ptPy)
 

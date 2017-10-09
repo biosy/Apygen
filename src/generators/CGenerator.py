@@ -1,11 +1,11 @@
 #!/usr/bin/python3.5
-
-# -*-coding:ENCODAGE -*
+# -*-coding:utf-8 -*
 
 import os
 import time
 import json
 import sys
+
 
 ##read config file
 configFile = open('./config.json')
@@ -18,7 +18,7 @@ projectName = configData["name"]
 
 
 #project creation
-print("[info] création d'un projet en " + typeGen)
+print(str("[info] création d'un projet en " + typeGen))
 print("[info] " + str(nbrFile) + " fichiers demandés")
 print("[Create] folder : " + projectName)
 
@@ -35,16 +35,16 @@ while i<nbrFile:
 
 	#case usual file, need a .h
 	if configData["file"][str(i)]["type"] == "casual" :
-		os.system("cp ./templates/ptH.h " + ptH)
+		os.system("cp ../templates/ptH.h " + ptH)
 		os.system("echo '\43include "+includer+"' >> " + ptC)
 		print("[Create] file : " + ptH)
 
 	#case main just need a main()
 	if configData["file"][str(i)]["type"] == "main" :
-		os.system("cp ./templates/main.c " + ptC)
+		os.system("cp ../templates/main.c " + ptC)
 
 	i = i+1
 
 	#generate a generic makefile
-	os.system("cp ./templates/Makefile "+ projectName)
+	os.system("cp ../templates/Makefile "+ projectName)
 

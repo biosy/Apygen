@@ -1,6 +1,5 @@
 #!/usr/bin/python3.5
-
-# -*-coding:ENCODAGE -*
+# -*-coding:Latin-1 -*
 
 import os
 import time
@@ -35,24 +34,24 @@ while i<nbrFile:
 
 	#case usual file, need a .h
 	if configData["file"][str(i)]["type"] == "casual" :
-		os.system("cp ./templates/ptH.hpp " + ptH)
+		os.system("cp ../templates/ptH.hpp " + ptH)
 		os.system("echo '\43include "+includer+"' >> " + ptC)
 		print("[Create] file : " + ptH)
 
 	#case main just need a main()
 	if configData["file"][str(i)]["type"] == "main" :
-		os.system("cp ./templates/main.cpp " + ptC)
+		os.system("cp ../templates/main.cpp " + ptC)
 
 	#case class
 	if configData["file"][str(i)]["type"] == "class" :
 		classLine = "'\nclass " + configData["file"][str(i)]["name"] + "{\n\n\n\n};'"
-		os.system("cp ./templates/ptH.hpp " + ptH)
+		os.system("cp ../templates/ptH.hpp " + ptH)
 		os.system("echo " + classLine + " >> " + ptH)
 		os.system("echo '\43include "+includer+"' >> " + ptC)
 
 	i=i+1
 
 #generate a generic makefile
-os.system("cp ./templates/MakefileCpp "+ projectName)
+os.system("cp ../templates/MakefileCpp "+ projectName)
 os.system("mv " + projectName + "/MakefileCpp " + projectName + "/Makefile")
 
